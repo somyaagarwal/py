@@ -1,0 +1,17 @@
+with open('sampledata.csv', 'rb') as csvfile:
+    sp = csvfile.readlines()
+    years = ['1990','1991']
+
+    header = sp[0]
+    no_of_comp = len(header.split(',')) - 2
+    print "Number of comapnies",no_of_comp
+
+    for company in range(no_of_comp):
+        for yr in years:
+            list_a = [x.split(',')[company+2].rstrip() for x in sp if x.rfind(yr) == 0]
+            highest = max(map(int, list_a))
+            print " For Year " + yr +" and company " +header.split(',')[company+2].rstrip() +"'s highest share is " + str(highest)          
+
+
+        
+    
